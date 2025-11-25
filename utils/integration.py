@@ -6,7 +6,6 @@ import numpy as np
 FERT_RULES_PATH = os.path.join('modules', 'fertilizer_reco', 'fertilizer_rules.csv')
 
 def load_fertilizer_rules(path=FERT_RULES_PATH):
-    """Return rules as dict[crop][stage] -> row dict"""
     if not os.path.exists(path):
         return {}
     rules = {}
@@ -19,18 +18,14 @@ def load_fertilizer_rules(path=FERT_RULES_PATH):
     return rules
 
 def preprocess_image_pil(image, size=(224,224)):
-    """PIL image -> normalized numpy array"""
     image = image.convert('RGB').resize(size)
     arr = np.array(image).astype('float32') / 255.0
     return arr
 
-# --- Mock functions expected by app.py ---
 def predict_stage_mock(image):
-    """Mock stage predictor — returns JSON contract used by app.py"""
-    return {'crop': 'Tomato', 'stage': 'Semi-Ripe', 'confidence': 0.88}
+    return {'crop':'Tomato','stage':'Semi-Ripe','confidence':0.88}
 
 def fertilizer_mock(stage_output, rules=None):
-    """Rule-based fertilizer mock — uses rules if available"""
     crop = stage_output.get('crop','Tomato')
     stage = stage_output.get('stage','Semi-Ripe')
     if rules and crop in rules and stage in rules[crop]:
@@ -42,7 +37,6 @@ def fertilizer_mock(stage_output, rules=None):
             'stage': stage,
             'crop': crop
         }
-    # fallback defaults
     if stage == 'Unripe':
         return {'fertilizer':'Urea','dose':'40 kg/acre','reason':'Promote vegetative growth','stage':stage,'crop':crop}
     if stage == 'Semi-Ripe':
@@ -50,7 +44,6 @@ def fertilizer_mock(stage_output, rules=None):
     return {'fertilizer':'MOP','dose':'20 kg/acre','reason':'Enhance color & firmness','stage':stage,'crop':crop}
 
 def yield_mock(fert_output):
-    """Mock yield predictor using fertilizer type"""
     fert = fert_output.get('fertilizer','NPK')
     if fert == 'Urea':
         return {'yield':'8.2 tons/acre','days_left':30}

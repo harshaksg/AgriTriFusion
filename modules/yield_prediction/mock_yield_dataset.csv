@@ -1,0 +1,6 @@
+crop,stage,fertilizer,dose,soil_moisture,avg_temp,actual_yield_tons
+Tomato,Semi-Ripe,NPK,25,0.22,28,9.5
+Tomato,Unripe,Urea,40,0.30,27,8.2
+Banana,Green,MOP,30,0.45,25,18.0
+Marigold,Flowering,NPK,15,0.20,26,2.5
+
