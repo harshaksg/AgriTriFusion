@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-12-17T11:22:53.013424",
+  "images_analyzed": 1,
+  "planting_area_hectares": 2.5,
+  "num_seeds": 4000,
+  "harvest_timeline": {
+    "earliest_harvest_date": "2025-12-18",
+    "latest_harvest_date": "2025-12-18",
+    "harvest_window_days": 0,
+    "average_days_to_harvest": 0.8
+  },
+  "ripeness_analysis": {
+    "dominant_crop": "tomato",
+    "unripe_percentage": 0.0,
+    "semiripe_percentage": 100.0,
+    "ripe_percentage": 0.0,
+    "average_confidence": 1.0
+  },
+  "substage_distribution": {
+    "('semiripe', 'early')": 1
+  },
+  "yield_prediction": {
+    "total_yield_tons": 130.0,
+    "total_yield_kg": 130000,
+    "yield_per_hectare_tons": 52.0,
+    "quality_score": 0.8
+  },
+  "per_image_details": [
+    {
+      "image_num": 1,
+      "filename": "sample_tomato.jpg",
+      "crop": "tomato",
+      "ripening_stage": "semiripe",
+      "ripening_confidence": 1.0,
+      "crop_confidence": 1.0,
+      "substage": "early",
+      "substage_confidence": 0.75,
+      "days_to_harvest": 0.8,
+      "harvest_date": "2025-12-18"
+    }
+  ]
+}
